@@ -19,7 +19,7 @@ def main(page: ft.Page):
     )
     
    
-    page.go('/home')
+    page.go('/Inventario')
     page.update()
 
 ft.app(target=main, assets_dir="assets")
