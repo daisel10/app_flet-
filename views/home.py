@@ -130,20 +130,7 @@ def Home_page(router_data: Union[Router, str, None] = None):
                                 ),
                     ],
                 ),
-                
-                # ft.Row(
-                #     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-                #     controls=[
-                #         ft.Column(
-                #             controls=[
-                                
-
-                #             ]
-                #         ),
-                        
-                #     ]
-                # ),
-                
+                    
                 ft.Row(
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                     controls=[
@@ -151,19 +138,6 @@ def Home_page(router_data: Union[Router, str, None] = None):
                         ft.FilledButton(text="TODO", on_click=lambda _: router_data.page.go("/")),
                         ft.FilledButton(text="Clases", on_click=lambda _: router_data.page.go("/Tareas")),
                         ft.FilledButton(text="Inventario", on_click=lambda _: router_data.page.go("/Inventario")),
-                        
-                        # ft.AppBar(
-                        #     leading=ft.Icon(ft.icons.TAG_FACES_ROUNDED),
-                        #     leading_width=40,
-                        #     title=ft.Text("Flet Router"),
-                        #     center_title=False,
-                        #     bgcolor=ft.colors.SURFACE_VARIANT,
-                        #     actions=[
-                        #         ft.IconButton(ft.icons.HOME, on_click=lambda _: router_data.go('/')),
-                        #         ft.IconButton(ft.icons.PERSON_ROUNDED, on_click=lambda _: router_data.go('/profile')),
-                        #         ft.IconButton(ft.icons.SETTINGS_ROUNDED, on_click=lambda _: router_data.go('/settings'))
-                        #     ]
-                        # )
                     ],
                 ),
             ],
