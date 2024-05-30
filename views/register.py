@@ -45,6 +45,6 @@ def Register(router_data: Union[Router, str, None] = None):
     )
 
     router_data.page.title = "Registro"
-    router_data.page.add(container)
+    # router_data.page.add(container)
 
     return container

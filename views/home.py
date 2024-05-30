@@ -18,7 +18,7 @@ def escribir_dato_en_csv(dato):
         escritor_csv = csv.writer(archivo)
         
         escritor_csv.writerow([dato.control.text, fecha_actual])
-        
+        dato.page.update()
 
 def Home_page(router_data: Union[Router, str, None] = None):
     
