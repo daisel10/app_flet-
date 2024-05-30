@@ -3,72 +3,71 @@ import flet as ft
 from views.Router import Router
 # from State import global_state, State
 
-def IndexView(router_data: Union[Router, str, None] = None):
-    
-    # def send_data(e: ft.ControlEvent):
-    #     if text_field.value == "":
-    #         return
-    #     if router_data and router_data.data_strategy == DataStrategyEnum.QUERY:
-    #         e.page.go("/data", data=text_field.value)
-    #     elif router_data and router_data.data_strategy == DataStrategyEnum.ROUTER_DATA: 
-    #         router_data.set_data("data", text_field.value)
-    #         e.page.go("/data", data=text_field.value)
-    #     elif router_data and router_data.data_strategy == DataStrategyEnum.CLIENT_STORAGE:
-    #         e.page.client_storage.set("data", text_field.value)
-    #         e.page.go("/data")
-    #     elif router_data and router_data.data_strategy == DataStrategyEnum.STATE:
-    #         state = State("data", text_field.value)
-    #         e.page.go("/data")
-    #     else:
-    #         e.page.go("/data")
+import flet as ft
 
-    # text_field = ft.TextField()
-    # send_button = ft.ElevatedButton("Send")
-    # send_button.on_click = send_data
-    # content = ft.Column(
-    #         [
-    #             ft.Row(
-    #             [
-    #                 ft.Text(
-    #                     "Welcome to my Flet Router Tutorial",
-    #                     size=50),
-    #             ], 
-    #             alignment=ft.MainAxisAlignment.CENTER
-    #         ),
-    #             ft.Row(
-    #             [
-    #                 text_field,
-    #                 send_button
-    #             ],
-    #             alignment=ft.MainAxisAlignment.CENTER
-    #             )
-    #         ]
-    #     )
-    
-    router_data.page.title = "Flet counter example"
-    router_data.page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
-
-    def minus_click(e):
-        txt_number.value = str(int(txt_number.value) - 1)
-        router_data.page.update()
-
-    def plus_click(e):
-        txt_number.value = str(int(txt_number.value) + 1)
-        router_data.page.update()
-
-    
-    row = ft.Row(
-            [
-                ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                txt_number,
-                ft.IconButton(ft.icons.ADD, on_click=plus_click),
+class TodoApp(ft.UserControl):
+    def build(self):
+        self.txt_task = ft.TextField(hint_text="Enter task", expand=True)
+        self.tasks_colunm = ft.Column()
+        self.view_main_colunm = ft.Column(
+            width=600,
+            controls=[
+                ft.Row(
+                    controls=[
+                        self.txt_task,
+                        ft.FloatingActionButton(
+                            icon=ft.icons.ADD, on_click=self.add_clicked),
+                    ],
+                ),
+                self.tasks_colunm,
             ],
-            alignment=ft.MainAxisAlignment.CENTER,
         )
+
+        return self.view_main_colunm
+
+    def add_clicked(self, e):
+        self.tasks_colunm.controls.append(ft.Checkbox(label=self.txt_task.value))
+        self.txt_task.value = ""
+        self.view_main_colunm.update()
+
+
+
+
+
+def IndexView(router_data: Union[Router, str, None] = None):
+        
+    def add_clicked( e):
+        tasks_colunm.controls.append(ft.Checkbox(label=txt_task.value))
+        txt_task.value = ""
+        view_main_colunm.update()
+        print(tasks_colunm.controls)
+        
+    
+    txt_task = ft.TextField(hint_text="Enter task", expand=True)
+    tasks_colunm = ft.Column()
+    view_main_colunm = ft.Column(
+        width=600,
+        controls=[
+            ft.Row(
+                controls=[
+                    txt_task,
+                    ft.FloatingActionButton(
+                        icon=ft.icons.ADD, on_click=add_clicked),
+                ],
+            ),
+            tasks_colunm,
+        ],
+    )
+    
+    router_data.page.title = "ToDo App"
+    router_data.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    router_data.page.update()
+    
+
+    return view_main_colunm
     
     
-    return row
+
 
 

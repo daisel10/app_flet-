@@ -1,6 +1,7 @@
 from typing import Callable, Any
 import flet as ft
-from enum import Enum
+
+from user_controls.app_bar import NavBar
 
 
 
@@ -10,7 +11,9 @@ class Router:
         self.routes = {}
         self.body = ft.Container(
             alignment=ft.alignment.center,
-            expand=True,bgcolor="yellow")
+            expand=True
+            #bgcolor="yellow"
+            )
 
     def set_route(self, stub: str, view: Callable):
         self.routes[stub] = view
@@ -21,16 +24,12 @@ class Router:
 
     def route_change(self, route):
         _page = route.route.split("?")[0]
+        
+        print(_page)
+        if _page != "/screen_lock":
+            route.page.appbar = NavBar(route.page)
+        
 
         self.body.content = self.routes[_page](self)
         self.body.update()
-
-    def set_data(self, key, value):
-        self.data[key] = value
-
-    def get_data(self, key):
-        return self.data.get(key)
-
-    def get_query(self, key):
-        return self.data.get(key)
 

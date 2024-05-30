@@ -8,7 +8,7 @@ def main(page: ft.Page):
     page.theme_mode = "dark"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.appbar = NavBar(page)
+    # page.appbar = NavBar(page)
     
     print("New page size:", page.window_width, page.window_height)
     
@@ -17,9 +17,7 @@ def main(page: ft.Page):
     page.add(
         router.body
     )
-    
-   
-    page.go('/Inventario')
+    page.go('/screen_lock')
     page.update()
 
 ft.app(target=main, assets_dir="assets")

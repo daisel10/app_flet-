@@ -13,10 +13,12 @@ def Screen_lock(router_data: Union[Router, str, None] = None):
         with open("./views/data.csv", "r") as reader:
             for line in reader:    
                 data = line.split(",")
-                if data[0] == "0":
+                if data == "0":
                     router_data.page.go("/register")
+                    
                 else:
-                    router_data.page.go("/")
+                    router_data.page.go("/home")
+                    
 
         
         # router_data.body.update()
@@ -52,5 +54,5 @@ def Screen_lock(router_data: Union[Router, str, None] = None):
   
     router_data.page.title = "screen_lock"
     #router_data.page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    router_data.page.add(second_container)
+    # router_data.page.add(second_container)
     return second_container
