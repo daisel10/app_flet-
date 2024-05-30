@@ -44,6 +44,12 @@ def NavBar(page):
                         leading=ft.Icon(ft.icons.INVENTORY),
                         style=ft.ButtonStyle(bgcolor={ft.MaterialState.HOVERED: ft.colors.GREEN_100}),
                         on_click=lambda _: page.go('/Inventario')
+                    ),
+                    ft.MenuItemButton(
+                        content=ft.Text("Emociones"),
+                        leading=ft.Icon(ft.icons.EMOJI_EMOTIONS),
+                        style=ft.ButtonStyle(bgcolor={ft.MaterialState.HOVERED: ft.colors.GREEN_100}),
+                        on_click=lambda _: page.go('/Count_emotions')
                     )
                 ]
             ),        

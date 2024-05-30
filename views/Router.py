@@ -26,7 +26,7 @@ class Router:
         _page = route.route.split("?")[0]
         
         print(_page)
-        if _page != "/screen_lock":
+        if (_page != "/screen_lock") and (_page != "/register") :
             route.page.appbar = NavBar(route.page)
         
 

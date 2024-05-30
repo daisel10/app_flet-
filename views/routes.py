@@ -6,6 +6,7 @@ from views.register import Register
 from views.home import Home_page
 from views.matwa.Inventario import Inventario
 from views.matwa.Tareas import Tareas
+from views.count_emotions import Count_emotions
 
 
 router = Router()
@@ -17,5 +18,6 @@ router.routes = {
     "/settings": SettingsView,
     "/register": Register,
     "/Inventario": Inventario,
-    "/Tareas": Tareas
+    "/Tareas": Tareas,
+    "/Count_emotions": Count_emotions
 }
